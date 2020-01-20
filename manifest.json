@@ -9,9 +9,15 @@
       "background.js"
     ]
   },
+  "content_scripts": [
+    {
+      "matches": ["*://*.jiosaavn.com/*"],
+      "js": ["inject.js"]
+    }
+  ],
   "permissions": [
     "*://*.jiosaavn.com/*",
     "tabs"
   ],
   "manifest_version": 2
-}
+} 

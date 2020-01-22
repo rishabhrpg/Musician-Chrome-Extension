@@ -9,10 +9,17 @@
       "background.js"
     ]
   },
+  "web_accessible_resources": [
+    "test.js"
+  ],
   "content_scripts": [
     {
-      "matches": ["*://*.jiosaavn.com/*"],
-      "js": ["inject.js"]
+      "matches": [
+        "*://*.jiosaavn.com/*"
+      ],
+      "js": [
+        "inject.js"
+      ]
     }
   ],
   "permissions": [
@@ -20,4 +27,4 @@
     "tabs"
   ],
   "manifest_version": 2
-} 
+}

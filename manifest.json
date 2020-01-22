@@ -24,7 +24,8 @@
   ],
   "permissions": [
     "*://*.jiosaavn.com/*",
-    "tabs"
+    "tabs",
+    "downloads"
   ],
   "manifest_version": 2
 }

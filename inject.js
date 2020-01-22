@@ -18,6 +18,9 @@ if (!isBridgeExist) {
             case 'test':
                 console.log('tunnel test pass');
                 break;
+            case 'trackChanged':
+                chrome.runtime.sendMessage({ action: event.detail.action, source : event.detail.source, meta: event.detail.meta }, (res) => console.log(res));
+                break;
             default:
                 console.error('wrong data format passed');
         }

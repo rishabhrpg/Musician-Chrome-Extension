@@ -1,6 +1,10 @@
 console.log('Musician is handling this tab');
 jwplayer().onPlay(() => init());
 
+String.prototype.filefy = function() {
+    return this.replace(/&quot;/g,'"').replace(/[\/|\\:*?"<>]/g, "_");
+}
+
 function init() {
 
     trackName = document.getElementById("player-track-name").textContent;
@@ -26,7 +30,14 @@ function init() {
     e = new CustomEvent('clientToChrome',
         {
             bubbles: false,
-            detail: { action: 'test' }
+            detail: { 
+                action: 'trackChanged',
+                source: jwplayer().getPlaylist()[0].sources[0].file,
+                meta: {
+                    title: jwplayer().getPlaylist()[0].description.title.filefy(),
+                    album: jwplayer().getPlaylist()[0].description.album.filefy()
+                }
+            }
         });
     document.getElementById('bridgeDiv').dispatchEvent(e);
 }

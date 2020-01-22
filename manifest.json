@@ -25,7 +25,12 @@
   "permissions": [
     "*://*.jiosaavn.com/*",
     "tabs",
-    "downloads"
+    "downloads",
+    "downloads.shelf"
   ],
+  "browser_action": {
+    "default_title": "Musician",
+    "default_popup": "popup.html"
+  },
   "manifest_version": 2
 }

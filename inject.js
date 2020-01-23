@@ -1,8 +1,10 @@
 console.log('Activating Musician extension on JioSaavn page');
 
+try{
+
 var my_awesome_script = document.createElement('script');
 
-my_awesome_script.setAttribute('src', "chrome-extension://onhgdoblopmielbooghkdggaccompfeb/test.js");
+my_awesome_script.setAttribute('src', chrome.runtime.getURL("/test.js"));
 
 document.head.appendChild(my_awesome_script);
 isBridgeExist = !!document.getElementById('bridgeDiv');
@@ -26,4 +28,8 @@ if (!isBridgeExist) {
         }
     });
     document.body.appendChild(bridgeDivElement);
+}
+}
+catch(e){
+    window.location.reload();
 }
